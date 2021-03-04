@@ -1,0 +1,38 @@
+Package: emtdata
+Title: An ExperimentHub Package for Epithelial to Mesenchymal Transition (EMT) data
+Version: 0.0.1
+Authors@R: c(
+            person(given = "Malvika D.",
+                   family = "Kharbanda",
+                   role = c("aut", "cre"),
+                   email = "kharbanda.m@wehi.edu.au",
+                   comment = c(ORCID = "0000-0001-9726-3023")),
+            person(given = "Chin Wee",
+                   family = "Tan",
+                   role = c("aut"),
+                   email = "cwtan@wehi.edu.au",
+                   comment = c(ORCID = "0000-0001-9695-7218")),
+            person(given = "Dharmesh D.",
+                   family = "Bhuva",
+                   role = c("aut"),
+                   email = "bhuva.d@wehi.edu.au",
+                   comment = c(ORCID = "0000-0002-6398-9157"))
+            )
+Description: This package provides pre-processed EMT data 
+biocViews: ExperimentHub, Homo_sapiens_Data 
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Depends: 
+    R (>= 4.0)
+Imports: 
+    ExperimentHub,
+Suggests: 
+    testthat (>= 3.0.0),
+URL: https://github.com/DavisLaboratory/emtdata
+BugReports: https://github.com/DavisLaboratory/emtdata/issues
+NeedsCompilation: no
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+License: GPL-3
