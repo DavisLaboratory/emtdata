@@ -1,0 +1,60 @@
+SampleID,Treatment,Cell.Line,Tissue,GEO,Reference,PMID,Platform
+D_Ctrl_R1,Ctrl,MCF10A,Breast,GSE28569,Deshiere and colleagues (2013),22562247,Agilent-014850 Whole Human Genome
+D_TGFb_R1,TGFb,MCF10A,Breast,GSE28569,Deshiere and colleagues (2013),22562247,Agilent-014850 Whole Human Genome
+D_Ctrl_R2,Ctrl,MCF10A,Breast,GSE28569,Deshiere and colleagues (2013),22562247,Agilent-014850 Whole Human Genome
+D_TGFb_R2,TGFb,MCF10A,Breast,GSE28569,Deshiere and colleagues (2013),22562247,Agilent-014850 Whole Human Genome
+Hes_Ctrl_R1,Ctrl,HMEC-TR,Breast,GSE28448,Hesling and colleagues (2011),21597466,Affymetrix- HG-U133_Plus_2
+Hes_TGFb_R1,TGFb,HMEC-TR,Breast,GSE28448,Hesling and colleagues (2011),21597466,Affymetrix- HG-U133_Plus_2
+Hes_Ctrl_R2,Ctrl,HMEC-TR,Breast,GSE28448,Hesling and colleagues (2011),21597466,Affymetrix- HG-U133_Plus_2
+Hes_TGFb_R2,TGFb,HMEC-TR,Breast,GSE28448,Hesling and colleagues (2011),21597466,Affymetrix- HG-U133_Plus_2
+Hil_Ctrl_R1,Ctrl,Human proximal tubular cell line,Kidney,GSE20247,Hills and colleagues (2010),20197308,Illumina- HumanWG-6 v3.0
+Hil_Ctrl_R2,Ctrl,Human proximal tubular cell line,Kidney,GSE20247,Hills and colleagues (2010),20197308,Illumina- HumanWG-6 v3.0
+Hil_Ctrl_R3,Ctrl,Human proximal tubular cell line,Kidney,GSE20247,Hills and colleagues (2010),20197308,Illumina- HumanWG-6 v3.0
+Hil_TGFb_R1,TGFb,Human proximal tubular cell line,Kidney,GSE20247,Hills and colleagues (2010),20197308,Illumina- HumanWG-6 v3.0
+Hil_TGFb_R2,TGFb,Human proximal tubular cell line,Kidney,GSE20247,Hills and colleagues (2010),20197308,Illumina- HumanWG-6 v3.0
+Hil_TGFb_R3,TGFb,Human proximal tubular cell line,Kidney,GSE20247,Hills and colleagues (2010),20197308,Illumina- HumanWG-6 v3.0
+M_Ctrl_R1,Ctrl,Panc-1,Pancreas,GSE23952,Maupin and colleagues (2010),20885998,Affymetrix- HG-U133_Plus_2
+M_Ctrl_R2,Ctrl,Panc-1,Pancreas,GSE23952,Maupin and colleagues (2010),20885998,Affymetrix- HG-U133_Plus_2
+M_Ctrl_R3,Ctrl,Panc-1,Pancreas,GSE23952,Maupin and colleagues (2010),20885998,Affymetrix- HG-U133_Plus_2
+M_TGFb_R1,TGFb,Panc-1,Pancreas,GSE23952,Maupin and colleagues (2010),20885998,Affymetrix- HG-U133_Plus_2
+M_TGFb_R2,TGFb,Panc-1,Pancreas,GSE23952,Maupin and colleagues (2010),20885998,Affymetrix- HG-U133_Plus_2
+M_TGFb_R3,TGFb,Panc-1,Pancreas,GSE23952,Maupin and colleagues (2010),20885998,Affymetrix- HG-U133_Plus_2
+K_Ctrl_R1,Ctrl,A549,Lung,GSE17708,Keshamouni and colleagues(2010),19118450,Affymetrix- HG-U133_Plus_2
+K_Ctrl_R2,Ctrl,A549,Lung,GSE17708,Keshamouni and colleagues(2010),19118450,Affymetrix- HG-U133_Plus_2
+K_Ctrl_R3,Ctrl,A549,Lung,GSE17708,Keshamouni and colleagues(2010),19118450,Affymetrix- HG-U133_Plus_2
+K_TGFb_R1,TGFb,A549,Lung,GSE17708,Keshamouni and colleagues(2010),19118450,Affymetrix- HG-U133_Plus_2
+K_TGFb_R2,TGFb,A549,Lung,GSE17708,Keshamouni and colleagues(2010),19118450,Affymetrix- HG-U133_Plus_2
+K_TGFb_R3,TGFb,A549,Lung,GSE17708,Keshamouni and colleagues(2010),19118450,Affymetrix- HG-U133_Plus_2
+S_A_Ctrl_R1,Ctrl,A549,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_A_Ctrl_R2,Ctrl,A549,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_A_Ctrl_R3,Ctrl,A549,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_A_TGFb_R1,TGFb,A549,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_A_TGFb_R2,TGFb,A549,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_A_TGFb_R3,TGFb,A549,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_HCC_Ctrl_R1,Ctrl,HCC827,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_HCC_Ctrl_R2,Ctrl,HCC827,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_HCC_Ctrl_R3,Ctrl,HCC827,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_HCC_TGFb_R1,TGFb,HCC827,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_HCC_TGFb_R2,TGFb,HCC827,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_HCC_TGFb_R3,TGFb,HCC827,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_NCI_Ctrl_R1,Ctrl,NCI-H358,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_NCI_Ctrl_R2,Ctrl,NCI-H358,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_NCI_Ctrl_R3,Ctrl,NCI-H358,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_NCI_TGFb_R1,TGFb,NCI-H358,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_NCI_TGFb_R2,TGFb,NCI-H358,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+S_NCI_TGFb_R3,TGFb,NCI-H358,Lung,GSE49644,Sun and colleagues (2014),25379179,Affymetrix- HG-U133_Plus_2
+T_Ctrl1_R1,Ctrl,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_Ctrl1_R2,Ctrl,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_Ctrl1_R3,Ctrl,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_TGFb_R1,TGFb,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_TGFb_R2,TGFb,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_TGFb_R3,TGFb,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_Ctrl2_R1,Ctrl,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_Ctrl2_R2,Ctrl,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+T_Ctrl2_R3,Ctrl,HMLE,Breast,GSE24202,Taube and colleagues (2010),20713713,Affymetrix- HT_HG-U133A
+W_Ctrl_R1,Ctrl,HK-2,Kidney,GSE23338,Walsh and colleagues (2008),25379179,Affymetrix- HG-U133A_2
+W_Ctrl_R2,Ctrl,HK-2,Kidney,GSE23338,Walsh and colleagues (2008),25379179,Affymetrix- HG-U133A_2
+W_Ctrl_R3,Ctrl,HK-2,Kidney,GSE23338,Walsh and colleagues (2008),25379179,Affymetrix- HG-U133A_2
+W_TGFb_R1,TGFb,HK-2,Kidney,GSE23338,Walsh and colleagues (2008),25379179,Affymetrix- HG-U133A_2
+W_TGFb_R2,TGFb,HK-2,Kidney,GSE23338,Walsh and colleagues (2008),25379179,Affymetrix- HG-U133A_2
+W_TGFb_R3,TGFb,HK-2,Kidney,GSE23338,Walsh and colleagues (2008),25379179,Affymetrix- HG-U133A_2

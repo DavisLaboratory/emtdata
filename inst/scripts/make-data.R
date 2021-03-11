@@ -1,5 +1,7 @@
 library(SummarizedExperiment)
 library(edgeR)
+library(BiocFileCache)
+library(Homo.sapiens)
 
 #----Cursons et al. Cell Systems, HMLE system EMT----
 #specify paths
@@ -47,5 +49,35 @@ save(cursons_se, file = 'cursons_se.rda')
 
 #----Rik Thompson EMT----
 
-#----Foroutan et al. , EMT compendium dataset----
+#----Foroutan et al. MCR, EMT compendium dataset----
+figshare_link = 'https://ndownloader.figshare.com/files/9938620'
+annotpath = "inst/extdata/Foroutan_sample_annotations.csv"
+
+#download data
+bfc = BiocFileCache(tempfile(), ask = FALSE)
+fpath = bfcrpath(bfc, figshare_link)
+foroutan_data = read.delim(fpath, row.names = 1)
+
+#read in sample annotations
+sampleannot = read.csv(annotpath)
+rownames(sampleannot) = sampleannot$SampleID
+
+#create gene annotations
+geneannot = data.frame(
+  'EntrezID' = rownames(foroutan_data),
+  'EnsemblID' = mapIds(Homo.sapiens, rownames(foroutan_data), 'ENSEMBL', 'ENTREZID'),
+  'Chr' = mapIds(Homo.sapiens, rownames(foroutan_data), 'CDSCHROM', 'ENTREZID'),
+  'Start' = mapIds(Homo.sapiens, rownames(foroutan_data), 'CDSSTART', 'ENTREZID'),
+  'End' = mapIds(Homo.sapiens, rownames(foroutan_data), 'CDSEND', 'ENTREZID'),
+  'Strand' = mapIds(Homo.sapiens, rownames(foroutan_data), 'CDSSTRAND', 'ENTREZID'),
+  'gene_name' = mapIds(Homo.sapiens, rownames(foroutan_data), 'SYMBOL', 'ENTREZID')
+)
+
+#create a SummarizedExperiment object
+foroutan_se = SummarizedExperiment(
+  assays = list('logExpr' = as.matrix(foroutan_data)),
+  rowData = geneannot,
+  colData = sampleannot[colnames(foroutan_data), ]
+)
+save(foroutan_se, file = 'foroutan_se.rda')
 
