@@ -21,5 +21,6 @@
 #' library(ExperimentHub)
 #' eh <- ExperimentHub()
 #' emt_datasets <- query(eh, "emtdata")
+#' @name foroutan_se
 #'
-"foroutan_se"
+NULL
