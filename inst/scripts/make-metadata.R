@@ -1,7 +1,7 @@
 meta = data.frame(
   Title = c('foroutan_se'),
   Description = c(
-    'Gene expression data from Foroutan et al., MCR 2017. This gene expression data comes from multiple different studies (microarary and RNA-seq), with cell lines treated using TGFb to induce a mesenchymal shift. Data were combined using RUV to remove batch effects.'
+    'Gene expression data from Foroutan et al., MCR 2017. This gene expression data comes from multiple different studies (microarary and RNA-seq), with cell lines treated using TGFb to induce a mesenchymal shift. Data were combined using SVA and ComBat to remove batch effects.'
   ),
   BiocVersion = c(3.13),
   Genome = NA,

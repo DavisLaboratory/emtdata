@@ -4,8 +4,8 @@
 #' cell lines (from various tissues of origin) were stimulated with transforming
 #' growth factor beta (TGFb) to induce an epithelial to mesenchymal transition
 #' (EMT). Since the data were from different studies (and platforms), the
-#' removal of unwanted variation (RUV) approach was applied to discard batch
-#' effects.
+#' surrogate variable analysis (SVA) and ComBat approaches were applied to
+#' correct for batch effects.
 #'
 #' Data from this publication were downloaded from figshare and processed into a
 #' SummarizedExperiment object. Sample annotations were retrieved from the
