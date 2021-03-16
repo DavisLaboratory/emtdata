@@ -1,5 +1,5 @@
 meta = data.frame(
-  Title = c('foroutan_se'),
+  Title = c('foroutan2017_se'),
   Description = c(
     'Gene expression data from Foroutan et al., MCR 2017. This gene expression data comes from multiple different studies (microarary and RNA-seq), with cell lines treated using TGFb to induce a mesenchymal shift. Data were combined using SVA and ComBat to remove batch effects.'
   ),
@@ -18,7 +18,7 @@ meta = data.frame(
   RDataClass = 'GSEABase::SummarizedExperiment',
   DispatchClass = 'Rda',
   RDataPath = c(
-    'emtdata/foroutan_se.rda'
+    'emtdata/foroutan2017_se.rda'
   )
 )
 

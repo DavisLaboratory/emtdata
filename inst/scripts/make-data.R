@@ -43,13 +43,13 @@ dge = calcNormFactors(dge)
 emat_rpkm = rpkm(dge, gene.length = 'Length', log = TRUE)
 
 #create a SummarizedExperiment object
-cursons_se = SummarizedExperiment(
+cursons2018_se = SummarizedExperiment(
   assays = list('counts' = dge$counts, 'logRPKM' = emat_rpkm),
   rowData = dge$genes,
   colData = dge$samples
 )
-colnames(cursons_se) = cursons_se$Sample.Name
-save(cursons_se, file = 'cursons_se.rda')
+colnames(cursons2018_se) = cursons2018_se$Sample.Name
+save(cursons2018_se, file = 'cursons2018_se.rda')
 
 #----Rik Thompson 2015 EMT----
 str_dataset = 'Thompson2015'
@@ -133,10 +133,10 @@ geneannot = data.frame(
 )
 
 #create a SummarizedExperiment object
-foroutan_se = SummarizedExperiment(
+foroutan2017_se = SummarizedExperiment(
   assays = list('logExpr' = as.matrix(foroutan_data)),
   rowData = geneannot,
   colData = sampleannot[colnames(foroutan_data), ]
 )
-save(foroutan_se, file = 'foroutan_se.rda')
+save(foroutan2017_se, file = 'foroutan2017_se.rda')
 
