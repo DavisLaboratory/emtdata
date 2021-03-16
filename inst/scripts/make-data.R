@@ -6,6 +6,8 @@ library(stringr)
 library(plyr)
 
 #----Cursons et al. Cell Systems, HMLE system EMT----
+str_dataset = "Cursons2018"
+
 #specify paths
 fcpath = "inst/extdata/Cursons_fc_counts.txt.gz"
 annotpath = "inst/extdata/Cursons_sample_annotations.csv"
@@ -30,8 +32,8 @@ keep = filterByExpr(emat, design = design)
 
 op = par(no.readonly = TRUE)
 par(mfrow = c(1, 2))
-hist(cpm(dge, log = TRUE))
-hist(cpm(dge[keep, ], log = TRUE))
+hist(cpm(dge, log = TRUE), main = paste("Before Filter:", str_dataset), xlab = "logCPM")
+hist(cpm(dge[keep, ], log = TRUE), main = paste("After Filter:", str_dataset), xlab = "logCPM")
 par(op)
 
 dge = dge[keep, ]
@@ -88,8 +90,8 @@ keep = filterByExpr(emat, design = design)
 
 op = par(no.readonly = TRUE)
 par(mfrow = c(1, 2))
-hist(cpm(dge_thompson, log = TRUE), main = paste("Before Filter:",str_dataset), xlab = "logCPM")
-hist(cpm(dge_thompson[keep, ], log = TRUE), main = paste("After Filter:",str_dataset),xlab = "logCPM")
+hist(cpm(dge_thompson, log = TRUE), main = paste("Before Filter:", str_dataset), xlab = "logCPM")
+hist(cpm(dge_thompson[keep, ], log = TRUE), main = paste("After Filter:", str_dataset), xlab = "logCPM")
 par(op)
 
 dge_thompson = dge_thompson[keep, ]
