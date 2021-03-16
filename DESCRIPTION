@@ -28,8 +28,14 @@ Depends:
     R (>= 4.0)
 Imports: 
     ExperimentHub,
+    SummarizedExperiment
 Suggests: 
     testthat (>= 3.0.0),
+    stringr,
+    plyr,
+    Homo.sapiens,
+    BiocFileCache,
+    edgeR
 URL: https://github.com/DavisLaboratory/emtdata
 BugReports: https://github.com/DavisLaboratory/emtdata/issues
 NeedsCompilation: no

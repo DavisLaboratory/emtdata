@@ -3,6 +3,7 @@ library(edgeR)
 library(BiocFileCache)
 library(Homo.sapiens)
 library(stringr)
+library(plyr)
 
 #----Cursons et al. Cell Systems, HMLE system EMT----
 #specify paths
@@ -49,7 +50,6 @@ colnames(cursons_se) = cursons_se$Sample.Name
 save(cursons_se, file = 'cursons_se.rda')
 
 #----Rik Thompson 2015 EMT----
-
 str_dataset = "Thompson2015"
 
 #specify paths
@@ -67,27 +67,23 @@ emat = emat[, -(1:7)]
 colnames(emat) = basename(dirname(colnames(emat)))
 emat = emat[, rownames(sampleannot)]
 
-#adjust labels to sum up technical replicates
-sampleannot_ordered <- sampleannot[match(colnames(emat), sampleannot$Run),]
-colnames(emat) <- sampleannot_ordered$Sample.Name
-colnames(emat) <- str_remove(str_remove(colnames(emat), '_Ctrl'),'ep')
+#sum up technical replicates
+emat <- sumTechReps(emat, ID = sampleannot$Sample.Name)
 
-# sum up technical replicates
-emat <- sumTechReps(emat)
-
-# adjust sample information after summing up replicates
-colannot = data.frame('sampleid' = colnames(emat),
-                      'cellline' = str_remove(colnames(emat), '_.*'),
-                      SRA.study = unique(sampleannot_ordered$SRA.Study),
-                      Bio.Proj = unique(sampleannot_ordered$BioProject),
-                      treatment = unique(sampleannot_ordered$Treatment))
+#combine annotations for technical replicates
+sampleannot = ddply(sampleannot, 'Sample.Name', function(df) {
+  df$Run = paste(df$Run, collapse = ',')
+  df$Experiment = paste(df$Experiment, collapse = ',')
+  return(unique(df))
+})
+rownames(sampleannot) = sampleannot$Sample.Name
 
 #create DGEList object for pre-processing
-dge_thompson = DGEList(counts = emat, genes = geneannot, samples = colannot)
+dge_thompson = DGEList(counts = emat, genes = geneannot, samples = sampleannot)
 
 #filter out lowly expressed genes
 #no treatment differences in this experiment as the samples are all untreated controls
-design = model.matrix(~ 0 + cellline, data = dge_thompson$samples)
+design = model.matrix(~ 0 + Cell.Line, data = dge_thompson$samples)
 keep = filterByExpr(emat, design = design)
 
 op = par(no.readonly = TRUE)
@@ -108,10 +104,7 @@ thompson2015_se = SummarizedExperiment(
   rowData = dge_thompson$genes,
   colData = dge_thompson$samples
 )
-colnames(thompson2015_se) = thompson2015_se$Sample.Name
 save(thompson2015_se, file = 'thompson2015_se.rda')
-
-
 
 #----Foroutan et al. MCR, EMT compendium dataset----
 figshare_link = 'https://ndownloader.figshare.com/files/9938620'
