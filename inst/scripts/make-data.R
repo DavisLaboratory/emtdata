@@ -6,11 +6,11 @@ library(stringr)
 library(plyr)
 
 #----Cursons et al. Cell Systems, HMLE system EMT----
-str_dataset = "Cursons2018"
+str_dataset = 'Cursons2018'
 
 #specify paths
-fcpath = "inst/extdata/Cursons_fc_counts.txt.gz"
-annotpath = "inst/extdata/Cursons_sample_annotations.csv"
+fcpath = 'inst/extdata/Cursons_fc_counts.txt.gz'
+annotpath = 'inst/extdata/Cursons_sample_annotations.csv'
 
 #read in raw data
 emat = read.delim(gzfile(fcpath), skip = 1, row.names = 1, check.names = FALSE)
@@ -32,8 +32,8 @@ keep = filterByExpr(emat, design = design)
 
 op = par(no.readonly = TRUE)
 par(mfrow = c(1, 2))
-hist(cpm(dge, log = TRUE), main = paste("Before Filter:", str_dataset), xlab = "logCPM")
-hist(cpm(dge[keep, ], log = TRUE), main = paste("After Filter:", str_dataset), xlab = "logCPM")
+hist(cpm(dge, log = TRUE), main = paste('Before Filter:', str_dataset), xlab = 'logCPM')
+hist(cpm(dge[keep, ], log = TRUE), main = paste('After Filter:', str_dataset), xlab = 'logCPM')
 par(op)
 
 dge = dge[keep, ]
@@ -52,11 +52,11 @@ colnames(cursons_se) = cursons_se$Sample.Name
 save(cursons_se, file = 'cursons_se.rda')
 
 #----Rik Thompson 2015 EMT----
-str_dataset = "Thompson2015"
+str_dataset = 'Thompson2015'
 
 #specify paths
-fcpath = "inst/extdata/Thompson2015_fc_counts.txt.gz"
-annotpath = "inst/extdata/Thompson2015_sample_annotations.csv"
+fcpath = 'inst/extdata/Thompson2015_fc_counts.txt.gz'
+annotpath = 'inst/extdata/Thompson2015_sample_annotations.csv'
 
 #read in raw data
 emat = read.table(gzfile(fcpath),row.names=1, check.names = FALSE)
@@ -90,8 +90,8 @@ keep = filterByExpr(emat, design = design)
 
 op = par(no.readonly = TRUE)
 par(mfrow = c(1, 2))
-hist(cpm(dge_thompson, log = TRUE), main = paste("Before Filter:", str_dataset), xlab = "logCPM")
-hist(cpm(dge_thompson[keep, ], log = TRUE), main = paste("After Filter:", str_dataset), xlab = "logCPM")
+hist(cpm(dge_thompson, log = TRUE), main = paste('Before Filter:', str_dataset), xlab = 'logCPM')
+hist(cpm(dge_thompson[keep, ], log = TRUE), main = paste('After Filter:', str_dataset), xlab = 'logCPM')
 par(op)
 
 dge_thompson = dge_thompson[keep, ]
@@ -110,7 +110,7 @@ save(thompson2015_se, file = 'thompson2015_se.rda')
 
 #----Foroutan et al. MCR, EMT compendium dataset----
 figshare_link = 'https://ndownloader.figshare.com/files/9938620'
-annotpath = "inst/extdata/Foroutan_sample_annotations.csv"
+annotpath = 'inst/extdata/Foroutan_sample_annotations.csv'
 
 #download data
 bfc = BiocFileCache(tempfile(), ask = FALSE)
