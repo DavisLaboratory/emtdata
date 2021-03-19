@@ -9,8 +9,8 @@ library(plyr)
 str_dataset = 'Cursons2018'
 
 #specify paths
-fcpath = 'inst/extdata/Cursons_fc_counts.txt.gz'
-annotpath = 'inst/extdata/Cursons_sample_annotations.csv'
+fcpath = 'inst/extdata/Cursons2018_fc_counts.txt.gz'
+annotpath = 'inst/extdata/Cursons2018_sample_annotations.csv'
 
 #read in raw data
 emat = read.delim(gzfile(fcpath), skip = 1, row.names = 1, check.names = FALSE)
