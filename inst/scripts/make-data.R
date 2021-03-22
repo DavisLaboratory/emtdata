@@ -70,7 +70,7 @@ colnames(emat) = basename(dirname(colnames(emat)))
 emat = emat[, rownames(sampleannot)]
 
 #sum up technical replicates
-emat <- sumTechReps(emat, ID = sampleannot$Sample.Name)
+emat = sumTechReps(emat, ID = sampleannot$Sample.Name)
 
 #combine annotations for technical replicates
 sampleannot = ddply(sampleannot, 'Sample.Name', function(df) {
@@ -79,6 +79,7 @@ sampleannot = ddply(sampleannot, 'Sample.Name', function(df) {
   return(unique(df))
 })
 rownames(sampleannot) = sampleannot$Sample.Name
+emat = emat[, rownames(sampleannot)]
 
 #create DGEList object for pre-processing
 dge_cursons = DGEList(counts = emat, genes = geneannot, samples = sampleannot)
