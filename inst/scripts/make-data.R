@@ -5,7 +5,7 @@ library(Homo.sapiens)
 library(stringr)
 library(plyr)
 
-#----Cursons et al. Cell Systems, HMLE system EMT----
+#----Cursons et al. (2018) Cell Systems, HMLE system EMT----
 str_dataset = 'Cursons2018'
 
 #specify paths
@@ -86,7 +86,7 @@ dge_cursons = DGEList(counts = emat, genes = geneannot, samples = sampleannot)
 
 #filter out lowly expressed genes
 #no treatment differences in this experiment as the samples are all untreated controls
-design = model.matrix(~ 0 + Cell.Line, data = dge_cursons$samples)
+design = model.matrix(~ 0 + Cell.Line + Treatment, data = dge_cursons$samples)
 keep = filterByExpr(emat, design = design)
 
 op = par(no.readonly = TRUE)
@@ -109,7 +109,7 @@ cursons2015_se = SummarizedExperiment(
 )
 save(cursons2015_se, file = 'cursons2015_se.rda')
 
-#----Foroutan et al. MCR, EMT compendium dataset----
+#----Foroutan et al. (2017) MCR, EMT compendium dataset----
 figshare_link = 'https://ndownloader.figshare.com/files/9938620'
 annotpath = 'inst/extdata/Foroutan_sample_annotations.csv'
 
