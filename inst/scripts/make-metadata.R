@@ -3,7 +3,7 @@ meta = data.frame(
   Description = c(
     'Gene expression data from Foroutan et al., MCR 2017. This gene expression data comes from multiple different studies (microarary and RNA-seq), with cell lines treated using TGFb to induce a mesenchymal shift. Data were combined using SVA and ComBat to remove batch effects.',
     'Gene expression data from Cursons et al., Cell Syst 2018. This gene expression data comes from the human mammary epithelial (HMLE) cell line. A mesenchymal HMLE (mesHMLE) phenotype was induced following treatment with TGFb. The mesHMLE subline was then treated with mir200c to reinduce an epithelial phenotype.',
-    'Gene expression data from Cursons et al., Cell Commun Signal 2015. This gene expression data comes from the PMC42-LA and PMC42-ET cell lines. The former exhibits an epithelial phenotype while the latter is more mesenchymal.'
+    'Gene expression data from Cursons et al., Cell Commun Signal 2015. This gene expression data comes from the PMC42-ET, PMC42-LA and MDA-MB-468 cell lines. Mesenchymal phenotype was induced in PMC42 cell lines with EGF treatment and in MDA-MB-468 with either EGF treatment or kept under Hypoxia.'
   ),
   BiocVersion = c(3.13),
   Genome = NA,
@@ -31,3 +31,4 @@ meta = data.frame(
 write.csv(meta, file = 'inst/extdata/metadata.csv', row.names = FALSE)
 
 ExperimentHubData::makeExperimentHubMetadata('../emtdata')
+
