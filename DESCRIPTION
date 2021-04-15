@@ -27,6 +27,7 @@ RoxygenNote: 7.1.1
 Depends: 
     R (>= 4.0)
 Imports: 
+    edgeR,
     ExperimentHub,
     SummarizedExperiment
 Suggests: 
@@ -34,8 +35,7 @@ Suggests:
     stringr,
     plyr,
     Homo.sapiens,
-    BiocFileCache,
-    edgeR
+    BiocFileCache
 URL: https://github.com/DavisLaboratory/emtdata
 BugReports: https://github.com/DavisLaboratory/emtdata/issues
 NeedsCompilation: no
