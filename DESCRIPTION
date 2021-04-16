@@ -1,6 +1,6 @@
 Package: emtdata
 Title: An ExperimentHub Package for data sets with an Epithelial to Mesenchymal Transition (EMT)
-Version: 0.0.1
+Version: 0.99.0
 Authors@R: c(
             person(given = "Malvika D.",
                    family = "Kharbanda",
@@ -18,14 +18,14 @@ Authors@R: c(
                    email = "bhuva.d@wehi.edu.au",
                    comment = c(ORCID = "0000-0002-6398-9157"))
             )
-Description: This package provides pre-processed EMT data 
+Description: This package provides pre-processed RNA-seq data where the epithelial to mesenchymal transition was induced on cell lines. These data come from three publications Cursons et al. (2015), Cursons etl al. (2018) and Foroutan et al. (2017). In each of these publications, EMT was induces across multiple cell lines following treatment by TGFb among other stimulants. This data will be useful in determining the regulatory programs modified in order to achieve an EMT. Data were processed by the Davis laboratory in the Bioinformatics division at WEHI.
 biocViews: ExperimentHub, Homo_sapiens_Data 
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
-    R (>= 4.0)
+    R (>= 4.1)
 Imports: 
     edgeR,
     ExperimentHub,
@@ -35,7 +35,8 @@ Suggests:
     stringr,
     plyr,
     Homo.sapiens,
-    BiocFileCache
+    BiocFileCache,
+    knitr
 URL: https://github.com/DavisLaboratory/emtdata
 BugReports: https://github.com/DavisLaboratory/emtdata/issues
 NeedsCompilation: no
