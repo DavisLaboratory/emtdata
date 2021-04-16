@@ -9,7 +9,7 @@ asDGEList(se, assay_name = "counts")
 \arguments{
 \item{se}{a SummarizedExperiment object.}
 
-\item{assay_name}{a character or a numeric, specifying the assay to retrieve.}
+\item{assay_name}{a character, specifying the assay to retrieve.}
 }
 \value{
 a DGEList object

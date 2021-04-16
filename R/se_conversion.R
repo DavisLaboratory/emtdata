@@ -4,7 +4,7 @@
 #' enhance differential expression analysis using the edgeR package.
 #'
 #' @param se a SummarizedExperiment object.
-#' @param assay_name a character or a numeric, specifying the assay to retrieve.
+#' @param assay_name a character, specifying the assay to retrieve.
 #'
 #' @return a DGEList object
 #' @export
@@ -19,6 +19,9 @@
 #' cursons2018_dge = asDGEList(cursons2018_se)
 #'
 asDGEList <- function(se, assay_name = 'counts') {
+  stopifnot(length(SummarizedExperiment::assays(se)) > 0)
+  stopifnot(assay_name %in% SummarizedExperiment::assayNames(se))
+
   dge = edgeR::DGEList(
     counts = SummarizedExperiment::assay(se, assay_name),
     genes = SummarizedExperiment::rowData(se),
