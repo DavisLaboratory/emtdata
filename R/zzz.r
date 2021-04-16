@@ -21,7 +21,7 @@
 #' library(ExperimentHub)
 #' eh <- ExperimentHub()
 #' emt_datasets <- query(eh, "emtdata")
-#' @name foroutan_se
+#' @name foroutan2017_se
 #'
 NULL
 
@@ -84,7 +84,7 @@ NULL
 #' library(ExperimentHub)
 #' eh <- ExperimentHub()
 #' emt_datasets <- query(eh, "emtdata")
-#' @name Cursons2018_se
+#' @name cursons2018_se
 #'
 NULL
 
