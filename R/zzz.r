@@ -87,3 +87,12 @@ NULL
 #' @name Cursons2018_se
 #'
 NULL
+
+.onLoad <- function(libname, pkgname) {
+  fl = system.file("extdata", "metadata.csv", package = pkgname)
+  titles = utils::read.csv(fl, stringsAsFactors = FALSE)$Title
+
+  ExperimentHub::createHubAccessors(pkgname, 'cursons2015_se')
+  ExperimentHub::createHubAccessors(pkgname, 'foroutan2017_se')
+  ExperimentHub::createHubAccessors(pkgname, 'cursons2018_se')
+}
