@@ -1,0 +1,111 @@
+---
+title: "emtdata"
+author: "Malvika D. Kharbanda"
+date: "`r BiocStyle::doc_date()`"
+output:
+  prettydoc::html_pretty:
+    theme: hpstr
+    toc: yes
+    toc_depth: 2
+    number_sections: yes
+    fig_caption: yes
+    df_print: paged
+vignette: >
+  %\VignetteIndexEntry{emtdata}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# emtdata
+
+This package can be installed using the code below:
+
+```{r install}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("emtdata")
+```
+
+# Download data from the emtdata R package
+
+Data in this package can be downloaded using the `ExperimentHub` interface as shown below. To download the data, we first need to get a list of the data available in the `emtdata` package and determine the unique identifiers for each data. The `query()` function assists in getting this list.
+
+```{r load-packages, message=FALSE}
+library(emtdata)
+library(ExperimentHub)
+```
+
+```{r get-emtdata}
+eh = ExperimentHub()
+query(eh , 'emtdata')
+```
+
+Data can then be downloaded using the unique identifier.
+
+```{r download-emtdata-cursons2018-id}
+eh[['EH5440']]
+```
+
+Alternatively, data can be downloaded using object name accessors in the `emtdata` package as below:
+
+```{r download-emtdata-cursons2018-accessor}
+#metadata are displayed
+cursons2018_se(metadata = TRUE)
+#data are loaded
+cursons2018_se()
+```
+
+# Accessing SummarizedExperiment object
+
+```{r access-se}
+cursons2018_se = eh[['EH5440']]
+
+#read counts
+assay(cursons2018_se)
+
+#genes
+rowData(cursons2018_se)
+
+#sample information
+colData(cursons2018_se)
+```
+
+# Exploratory analysis and visualization 
+
+```{r}
+library("DESeq2")
+cursons2018_dds <- DESeqDataSet(cursons2018_se, design = ~ Subline + Treatment)
+cursons2018_rld <- rlog(cursons2018_dds)
+cursons2018_sampleDists <- dist( t( assay(cursons2018_rld) ) )
+```
+
+## PCA
+```{r}
+cursons2018_data <- plotPCA(cursons2018_rld, intgroup = c( "Treatment", "Subline"), returnData=TRUE)
+cursons2018_percentVar <- round(100 * attr(cursons2018_data, "percentVar"))
+library("ggplot2")
+ggplot(data, aes(PC1, PC2, color=Treatment, shape=Subline)) + geom_point(size=3) +
+  xlab(paste0("PC1: ",cursons2018_percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",cursons2018_percentVar[2],"% variance"))
+```
+
+## MDS
+```{r}
+cursons2018_sampleDistMatrix <- as.matrix( cursons2018_sampleDists )
+cursons2018_mds <- data.frame(cmdscale(cursons2018_sampleDistMatrix))
+cursons2018_mds <- cbind(cursons2018_mds, as.data.frame(colData(cursons2018_rld)))
+ggplot(cursons2018_mds, aes(X1,X2,color=Treatment,shape=Subline)) + geom_point(size=3)
+```
+
+# Session information
+
+```{r sessionInfo}
+sessionInfo()
+```
