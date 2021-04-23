@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 ```
 
 # emtdata
-The emtdata package is an ExperimentHub package for three data sets with an Epithelial to Mesenchymal Transition (EMT). This package provides pre-processed RNA-seq data where the epithelial to mesenchymal transition was induced on cell lines. These data come from three publications Cursons et al. (2015), Cursons etl al. (2018) and Foroutan et al. (2017). In each of these publications, EMT was induces across multiple cell lines following treatment by TGFb among other stimulants. This data will be useful in determining the regulatory programs modified in order to achieve an EMT. Data were processed by the Davis laboratory in the Bioinformatics division at WEHI. 
+The emtdata package is an ExperimentHub package for three data sets with an Epithelial to Mesenchymal Transition (EMT). This package provides pre-processed RNA-seq data where the epithelial to mesenchymal transition was induced on cell lines. These data come from three publications [Cursons et al. (2015)](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA322427), [Cursons etl al. (2018)](https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJEB25042) and [Foroutan et al. (2017)](https://doi.org/10.4225/49/5a2a11fa43fe3). In each of these publications, EMT was induces across multiple cell lines following treatment by TGFb among other stimulants. This data will be useful in determining the regulatory programs modified in order to achieve an EMT. Data were processed by the Davis laboratory in the Bioinformatics division at WEHI.
   
 This package can be installed using the code below:
 
@@ -84,6 +84,8 @@ colData(cursons2018_se)
 ## cursons2018
 This gene expression data comes from the human mammary epithelial (HMLE) cell line. A mesenchymal HMLE (mesHMLE) phenotype was induced following treatment with TGFb. The mesHMLE subline was then treated with mir200c to reinduce an epithelial phenotype.
 
+Open help page `?cursons2018_se` for further reference
+
 ```{r}
 library(edgeR)
 library(RColorBrewer)
@@ -93,7 +95,9 @@ plotMDS(cursons2018_dge)
 ```
 
 ## cursons2015
-This gene expression data comes from the PMC42-ET, PMC42-LA and MDA-MB-468 cell lines. Mesenchymal phenotype was induced in PMC42 cell lines with EGF treatment and in MDA-MB-468 with either EGF treatment or kept under Hypoxia
+This gene expression data comes from the PMC42-ET, PMC42-LA and MDA-MB-468 cell lines. Mesenchymal phenotype was induced in PMC42 cell lines with EGF treatment and in MDA-MB-468 with either EGF treatment or kept under Hypoxia. 
+
+Open help page `?cursons2015_se` for further reference. 
 ```{r}
 cursons2015_se = eh[['EH5441']]
 cursons2015_dge <- asDGEList(cursons2015_se)
@@ -105,6 +109,8 @@ colours
 
 ## foroutan2017
 This gene expression data comes from multiple different studies (microarary and RNA-seq), with cell lines treated using TGFb to induce a mesenchymal shift. Data were combined using SVA and ComBat to remove batch effects.
+
+Open help page `?foroutan2017_se` for further reference
 ```{r}
 foroutan2017_se = eh[['EH5439']]
 foroutan2017_dge <- asDGEList(foroutan2017_se, assay_name = "logExpr")
