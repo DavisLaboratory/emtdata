@@ -19,7 +19,7 @@ Authors@R: c(
                    comment = c(ORCID = "0000-0002-6398-9157"))
             )
 Description: This package provides pre-processed RNA-seq data where the epithelial to mesenchymal transition was induced on cell lines. These data come from three publications Cursons et al. (2015), Cursons etl al. (2018) and Foroutan et al. (2017). In each of these publications, EMT was induces across multiple cell lines following treatment by TGFb among other stimulants. This data will be useful in determining the regulatory programs modified in order to achieve an EMT. Data were processed by the Davis laboratory in the Bioinformatics division at WEHI.
-biocViews: ExperimentHub, Homo_sapiens_Data 
+biocViews: ExperimentHub, Homo_sapiens_Data, RNASeqData, ExpressionData 
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -35,6 +35,7 @@ Suggests:
     stringr,
     plyr,
     prettydoc,
+    BiocStyle,
     Homo.sapiens,
     rmarkdown,
     BiocFileCache,
