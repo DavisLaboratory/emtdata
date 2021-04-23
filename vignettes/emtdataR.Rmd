@@ -81,10 +81,13 @@ colData(cursons2018_se)
 
 # Exploratory analysis and visualization
 
+Below we demonstrate how the SummarizedExperiment object can be interacted with. A simple MDS analyis is demonstrated for each of the datasets within this package. This transcriptomic data can be used for differential expression (DE) analyis and co-expression analysis to better understand the processes underlying EMT or MET. 
+
 ## cursons2018
+
 This gene expression data comes from the human mammary epithelial (HMLE) cell line. A mesenchymal HMLE (mesHMLE) phenotype was induced following treatment with TGFb. The mesHMLE subline was then treated with mir200c to reinduce an epithelial phenotype.
 
-Open help page `?cursons2018_se` for further reference
+See help page `?cursons2018_se` for further reference
 
 ```{r}
 library(edgeR)
@@ -95,22 +98,25 @@ plotMDS(cursons2018_dge)
 ```
 
 ## cursons2015
+
 This gene expression data comes from the PMC42-ET, PMC42-LA and MDA-MB-468 cell lines. Mesenchymal phenotype was induced in PMC42 cell lines with EGF treatment and in MDA-MB-468 with either EGF treatment or kept under Hypoxia. 
 
-Open help page `?cursons2015_se` for further reference. 
+See help page `?cursons2015_se` for further reference. 
+
 ```{r}
 cursons2015_se = eh[['EH5441']]
 cursons2015_dge <- asDGEList(cursons2015_se)
 cursons2015_dge <- calcNormFactors(cursons2015_dge)
 colours <- brewer.pal(7, name = "Paired")
 plotMDS(cursons2015_dge, dim.plot = c(2,3), col=rep(colours, each = 3)) 
-colours
 ```
 
 ## foroutan2017
+
 This gene expression data comes from multiple different studies (microarary and RNA-seq), with cell lines treated using TGFb to induce a mesenchymal shift. Data were combined using SVA and ComBat to remove batch effects.
 
-Open help page `?foroutan2017_se` for further reference
+See help page `?foroutan2017_se` for further reference
+
 ```{r}
 foroutan2017_se = eh[['EH5439']]
 foroutan2017_dge <- asDGEList(foroutan2017_se, assay_name = "logExpr")
