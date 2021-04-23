@@ -24,7 +24,8 @@ knitr::opts_chunk$set(
 ```
 
 # emtdata
-
+The emtdata package is an ExperimentHub package for three data sets with an Epithelial to Mesenchymal Transition (EMT). This package provides pre-processed RNA-seq data where the epithelial to mesenchymal transition was induced on cell lines. These data come from three publications Cursons et al. (2015), Cursons etl al. (2018) and Foroutan et al. (2017). In each of these publications, EMT was induces across multiple cell lines following treatment by TGFb among other stimulants. This data will be useful in determining the regulatory programs modified in order to achieve an EMT. Data were processed by the Davis laboratory in the Bioinformatics division at WEHI. 
+  
 This package can be installed using the code below:
 
 ```{r install}
@@ -40,6 +41,7 @@ Data in this package can be downloaded using the `ExperimentHub` interface as sh
 ```{r load-packages, message=FALSE}
 library(emtdata)
 library(ExperimentHub)
+library(SummarizedExperiment)
 ```
 
 ```{r get-emtdata}
@@ -68,7 +70,7 @@ cursons2018_se()
 cursons2018_se = eh[['EH5440']]
 
 #read counts
-assay(cursons2018_se)
+assay(cursons2018_se)[1:5, 1:5]
 
 #genes
 rowData(cursons2018_se)
@@ -79,29 +81,35 @@ colData(cursons2018_se)
 
 # Exploratory analysis and visualization 
 
+## cursons2018
+This gene expression data comes from the human mammary epithelial (HMLE) cell line. A mesenchymal HMLE (mesHMLE) phenotype was induced following treatment with TGFb. The mesHMLE subline was then treated with mir200c to reinduce an epithelial phenotype.
+
 ```{r}
-library("DESeq2")
-cursons2018_dds <- DESeqDataSet(cursons2018_se, design = ~ Subline + Treatment)
-cursons2018_rld <- rlog(cursons2018_dds)
-cursons2018_sampleDists <- dist( t( assay(cursons2018_rld) ) )
+library(edgeR)
+library(RColorBrewer)
+cursons2018_dge <- asDGEList(cursons2018_se)
+cursons2018_dge <- calcNormFactors(cursons2018_dge)
+plotMDS(cursons2018_dge)
 ```
 
-## PCA
+## cursons2015
+This gene expression data comes from the PMC42-ET, PMC42-LA and MDA-MB-468 cell lines. Mesenchymal phenotype was induced in PMC42 cell lines with EGF treatment and in MDA-MB-468 with either EGF treatment or kept under Hypoxia
 ```{r}
-cursons2018_data <- plotPCA(cursons2018_rld, intgroup = c( "Treatment", "Subline"), returnData=TRUE)
-cursons2018_percentVar <- round(100 * attr(cursons2018_data, "percentVar"))
-library("ggplot2")
-ggplot(data, aes(PC1, PC2, color=Treatment, shape=Subline)) + geom_point(size=3) +
-  xlab(paste0("PC1: ",cursons2018_percentVar[1],"% variance")) +
-  ylab(paste0("PC2: ",cursons2018_percentVar[2],"% variance"))
+cursons2015_se = eh[['EH5441']]
+cursons2015_dge <- asDGEList(cursons2015_se)
+cursons2015_dge <- calcNormFactors(cursons2015_dge)
+colours <- brewer.pal(7, name = "Paired")
+plotMDS(cursons2015_dge, dim.plot = c(2,3), col=rep(colours, each = 3)) 
+colours
 ```
 
-## MDS
+## foroutan2017
+This gene expression data comes from multiple different studies (microarary and RNA-seq), with cell lines treated using TGFb to induce a mesenchymal shift. Data were combined using SVA and ComBat to remove batch effects.
 ```{r}
-cursons2018_sampleDistMatrix <- as.matrix( cursons2018_sampleDists )
-cursons2018_mds <- data.frame(cmdscale(cursons2018_sampleDistMatrix))
-cursons2018_mds <- cbind(cursons2018_mds, as.data.frame(colData(cursons2018_rld)))
-ggplot(cursons2018_mds, aes(X1,X2,color=Treatment,shape=Subline)) + geom_point(size=3)
+foroutan2017_se = eh[['EH5439']]
+foroutan2017_dge <- asDGEList(foroutan2017_se, assay_name = "logExpr")
+foroutan2017_dge <- calcNormFactors(foroutan2017_dge)
+plotMDS(foroutan2017_dge, labels = foroutan2017_dge$samples$Treatment, col = rep(1:2))
 ```
 
 # Session information

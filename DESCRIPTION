@@ -34,7 +34,9 @@ Suggests:
     testthat (>= 3.0.0),
     stringr,
     plyr,
+    prettydoc,
     Homo.sapiens,
+    rmarkdown,
     BiocFileCache,
     knitr
 URL: https://github.com/DavisLaboratory/emtdata
