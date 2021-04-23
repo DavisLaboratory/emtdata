@@ -79,7 +79,7 @@ rowData(cursons2018_se)
 colData(cursons2018_se)
 ```
 
-# Exploratory analysis and visualization 
+# Exploratory analysis and visualization
 
 ## cursons2018
 This gene expression data comes from the human mammary epithelial (HMLE) cell line. A mesenchymal HMLE (mesHMLE) phenotype was induced following treatment with TGFb. The mesHMLE subline was then treated with mir200c to reinduce an epithelial phenotype.
@@ -115,7 +115,8 @@ Open help page `?foroutan2017_se` for further reference
 foroutan2017_se = eh[['EH5439']]
 foroutan2017_dge <- asDGEList(foroutan2017_se, assay_name = "logExpr")
 foroutan2017_dge <- calcNormFactors(foroutan2017_dge)
-plotMDS(foroutan2017_dge, labels = foroutan2017_dge$samples$Treatment, col = rep(1:2))
+tgfb_col <- as.numeric(foroutan2017_dge$samples$Treatment %in% 'TGFb') + 1
+plotMDS(foroutan2017_dge, labels = foroutan2017_dge$samples$Treatment, col = tgfb_col)
 ```
 
 # Session information
