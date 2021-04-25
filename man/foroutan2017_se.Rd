@@ -28,6 +28,6 @@ emt_datasets <- query(eh, "emtdata")
 }
 \references{
 Foroutan, M., Cursons, J., Hediyeh-Zadeh, S., Thompson, E. W., &
-Davis, M. J. (2017). A transcriptional program for detecting TGFβ-induced
+Davis, M. J. (2017). A transcriptional program for detecting TGFb-induced
 EMT in Cancer. Molecular Cancer Research, 15(5), 619-631.
 }

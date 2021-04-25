@@ -15,7 +15,7 @@
 #'   human cell lines treated with TGFb. The [SummarizedExperiment::colData()]
 #'   function can be used to access the sample annotations.
 #' @references Foroutan, M., Cursons, J., Hediyeh-Zadeh, S., Thompson, E. W., &
-#'   Davis, M. J. (2017). A transcriptional program for detecting TGFβ-induced
+#'   Davis, M. J. (2017). A transcriptional program for detecting TGFb-induced
 #'   EMT in Cancer. Molecular Cancer Research, 15(5), 619-631.
 #' @examples
 #' library(ExperimentHub)
