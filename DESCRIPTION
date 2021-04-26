@@ -1,6 +1,6 @@
 Package: emtdata
 Title: An ExperimentHub Package for data sets with an Epithelial to Mesenchymal Transition (EMT)
-Version: 0.99.1
+Version: 0.99.2
 Authors@R: c(
             person(given = "Malvika D.",
                    family = "Kharbanda",
@@ -37,6 +37,7 @@ Suggests:
     prettydoc,
     BiocStyle,
     Homo.sapiens,
+    RColorBrewer,
     rmarkdown,
     BiocFileCache,
     knitr
