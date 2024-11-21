@@ -4,10 +4,11 @@ The emtdata package is an ExperimentHub package for three data sets with an Epit
 
 This package can be installed using the code below:
 
----
-if (!requireNamespace("BiocManager", quietly = TRUE)) 
-  install.packages("BiocManager") BiocManager::install("emtdata")
----
+```
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager") 
+  BiocManager::install("emtdata")
+```
 
 ## Documentation
 
