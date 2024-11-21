@@ -1,11 +1,11 @@
 Package: emtdata
 Title: An ExperimentHub Package for data sets with an Epithelial to Mesenchymal Transition (EMT)
-Version: 0.99.3
+Version: 0.99.4
 Authors@R: c(
             person(given = "Malvika D.",
                    family = "Kharbanda",
                    role = c("aut", "cre"),
-                   email = "kharbanda.m@wehi.edu.au",
+                   email = "malvika.kharbanda@adelaide.edu.au",
                    comment = c(ORCID = "0000-0001-9726-3023")),
             person(given = "Chin Wee",
                    family = "Tan",
@@ -15,7 +15,7 @@ Authors@R: c(
             person(given = "Dharmesh D.",
                    family = "Bhuva",
                    role = c("aut"),
-                   email = "bhuva.d@wehi.edu.au",
+                   email = "dharmesh.bhuva@adelaide.edu.au",
                    comment = c(ORCID = "0000-0002-6398-9157"))
             )
 Description: This package provides pre-processed RNA-seq data where the epithelial to mesenchymal transition was induced on cell lines. These data come from three publications Cursons et al. (2015), Cursons etl al. (2018) and Foroutan et al. (2017). In each of these publications, EMT was induces across multiple cell lines following treatment by TGFb among other stimulants. This data will be useful in determining the regulatory programs modified in order to achieve an EMT. Data were processed by the Davis laboratory in the Bioinformatics division at WEHI.
